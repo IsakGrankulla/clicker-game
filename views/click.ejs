@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Bungee|Passion+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body1">
+    <div id="center">
+    <h1 id="first-text" class="unselectable">Click speed test!</h1>
+    <div class="center-div">
+        <div style="background-color: black; width: 500px; height: 300px;"  id="space">
+
+        </div>
+    </div>
+    <div class="unselectable" id="p-div">
+        <p class="no-select" id="time-element"></p>
+        <p id="clicks-element"></p>
+    </div>
+
+    <section class="section">
+        <div class="columns is-multiline is-mobile">
+            <div class="column">
+<form method="post" id="form" action="/addhighscore">
+    <label id="labelforinput" style="display: none;" id="label" for="inputname">Add your highscore</label>
+    <div class="control">
+        <input name="name" class="input is-hovered" style="display: none;" id="name-input" type="text" placeholder="Enter Your name">
+      </div>
+    <input type="submit" class="button is-link is-light" style="display: none;"  id="submitscore">
+    
+    <input type="hidden" name="score" id="score">
+
+</form>
+
+</div>
+</div>
+</section>
+    <h2 class="unselectable" id="cps-element">CPS</h2>
+</div>
+    <script>
+        let box = document.getElementById("space");
+
+        let submitBtn = document.getElementById("submitscore");
+        let nameInput = document.getElementById("name-input");
+        let label = document.getElementById("labelforinput");
+        let clicks = document.getElementById('clicks-element');
+        let cps = document.getElementById('cps-element');
+        let timeElement = document.getElementById('time-element');
+
+        let clickReact = 0;
+        let timerStarted = 0;
+        let timeLeft;
+        let timerId;
+
+        let clickListener = box.addEventListener("click", boxClicked);
+
+        function boxClicked() {
+            clickReact++
+            console.log("test");
+            clicks.innerText = "Clicks: " + clickReact;
+
+
+        if (timerStarted == 0) {
+            timerStarted = 1;
+            timeLeft = 50;
+            startTimer();
+
+}
+        }
+
+        function startTimer() {
+    timerId = setInterval(timerTick, 100);
+    timeElement.innerHTML = Math.ceil(timeLeft / 10);
+}
+
+function timerTick() {
+    timeLeft--;
+    timeElement.innerHTML = Math.ceil(timeLeft / 10);
+
+    const clicksPerSecond = clickReact / 5;
+
+
+    if (timeLeft <= 0) {
+        cps.innerHTML = clicksPerSecond;
+        document.getElementById("score").value = clicksPerSecond;
+        clearInterval(timerId);
+        nameInput.style.display = "";
+        label.style.display = "";
+        submitBtn.style.display = "";
+        box.removeEventListener('click', boxClicked);
+    } else if (clicksPerSecond > 7) {
+        box.style.backgroundColor = "red";
+    }
+
+
+}
+
+    </script>
+    
+</body>
+</html>

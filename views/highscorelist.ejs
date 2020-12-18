@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body1">
+      
+
+    <section class="section">
+      <div class="columns is-multiline is-mobile">
+<div class="column is-three-fifths is-offset-one-fifth" >
+        <table class="table is-fullwidth"  id="bruh">
+            <thead>
+              <tr>
+                <th><abbr title="Position">Pos</abbr></th>
+                <th><abbr title="name">Name</abbr></th>
+                <th><abbr title="Points">Score</abbr></th>
+             
+              </tr>
+               </thead>
+               <tbody>
+                 <% for(let i = 0; i < data.length; i++) { %>
+                
+              <tr>
+                <th><%= i+1 %></th>
+                <td><%= data[i].name %></td>
+                <td><%= data[i].score %></td>
+             </tr>  
+           <% } %>
+            </tbody>
+            </table>
+          
+
+</div>
+<div class="column is-three-fifths is-offset-one-fifth is-centered">
+  <form method="get" class="button-form" action="/">
+    <button type="submit" class="button is-link is-light">Try again</button>
+          </form>
+
+</div>
+</div>
+</section>
+
+
+
+
+</body>
+</html>

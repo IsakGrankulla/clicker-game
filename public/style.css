@@ -1,0 +1,64 @@
+#body1{
+    background-color: rgb(204, 204, 204);
+    height: 100vh;
+}
+
+#space {
+    border-radius: 20px;
+}
+
+.center-div {
+    display: inline-block;
+}
+
+#center {
+    text-align: center;
+}
+
+#bruh {
+    border: 1px solid white;
+}
+
+#first-text {
+    font-size: 50px;
+    font-family: 'Bungee', cursive;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px rgb(0, 0, 0);
+    text-align: center;
+    transition: 0.5s;
+    margin-bottom: 40px;
+}
+
+#cps-element {
+    font-family: 'Bungee', cursive;
+    text-shadow: 2px 2px rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+#clicks-element {
+    font-family: 'Bungee', cursive;
+   
+    font-size: 15px;
+}
+
+#time-element {
+    font-family: 'Bungee', cursive;
+    color: white;
+    font-size: 25px;
+}
+
+#name-input {
+    border-radius: 2px;
+    border: 1px solid rgb(0, 0, 0);
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#label {
+    font-family: 'Bungee', cursive;
+}
+
+.button-form {
+    text-align: center;
+}
